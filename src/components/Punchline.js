@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin-top: 24px;
+  opacity: ${({ show }) => show ? 1 : 0};
+  transition: all .3s;
   position: relative;
 `;
 
@@ -24,9 +26,9 @@ const PunchlineText = styled.div`
   text-align: end;
 `;
 
-const Punchline = ({ children }) => {
+const Punchline = ({ show, children }) => {
   return (
-    <Wrapper>
+    <Wrapper show={show}>
       <Quote>
         {'\u201D'}
       </Quote>

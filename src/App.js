@@ -115,11 +115,9 @@ const App = () => {
               {showPunchline ? 'Hide Punchline' : 'Show Punchline'}
             </Button>
           </PunchlineButtonWrapper>
-          {showPunchline && (
-            <Punchline>
-              {joke?.punchline}
-            </Punchline>
-          )}
+          <Punchline show={showPunchline}>
+            {joke?.punchline}
+          </Punchline>
         </div>
       )}
     </Wrapper>
