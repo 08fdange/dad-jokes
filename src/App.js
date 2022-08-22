@@ -53,7 +53,8 @@ const App = () => {
   }, []);
 
   const getJoke = () => {
-    setLoading(false);
+    setJoke(null);
+    setLoading(true);
     fetch('https://karljoke.herokuapp.com/jokes/random')
     .then(resp => {
       if (!resp.ok) {
@@ -64,10 +65,12 @@ const App = () => {
       return resp.json()
     })
     .then(data => {
-      setLoading(false);
-      setShowPunchline(false);
-      setJoke(data);
-      setError(null);
+      setTimeout(() => {
+        setLoading(false);
+        setShowPunchline(false);
+        setJoke(data);
+        setError(null);
+      }, 1000)
     })
     .catch((err) => {
       setLoading(false);
